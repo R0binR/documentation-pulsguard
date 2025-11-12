@@ -1,0 +1,13 @@
+baseURL = "https://r0binr.github.io/documentation-pulsguard/"
+title   = "PulseGuard Docs"
+languageCode = "fr"
+enableGitInfo = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/thingsym/hugo-theme-techdoc"
+
+[params]
+  menu_style = "open-menu"
+  themeColor = "blue"
+

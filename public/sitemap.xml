@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/documentation-pulsguard/docs/</loc>
+  </url><url>
+    <loc>http://localhost:1313/documentation-pulsguard/docs/api/</loc>
+  </url><url>
+    <loc>http://localhost:1313/documentation-pulsguard/docs/cli/</loc>
+  </url><url>
+    <loc>http://localhost:1313/documentation-pulsguard/docs/development/</loc>
+  </url><url>
+    <loc>http://localhost:1313/documentation-pulsguard/docs/installation/</loc>
+  </url><url>
+    <loc>http://localhost:1313/documentation-pulsguard/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/documentation-pulsguard/</loc>
+  </url><url>
+    <loc>http://localhost:1313/documentation-pulsguard/tags/</loc>
+  </url>
+</urlset>
