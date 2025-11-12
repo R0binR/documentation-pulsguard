@@ -3,7 +3,7 @@
 <head><script src="/documentation-pulsguard/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=documentation-pulsguard/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>PulseGuard Docs</title>
+<title>Utilisation de la CLI - PulseGuard Docs</title>
 <meta name="generator" content="Hugo 0.123.7">
 <link href="http://localhost:1313/documentation-pulsguard//index.xml" rel="alternate" type="application/rss+xml">
 <link rel="canonical" href="http://localhost:1313/documentation-pulsguard/docs/cli/">
@@ -16,19 +16,31 @@
 <script src="http://localhost:1313/documentation-pulsguard/js/bundle.js"></script><style>
 :root {}
 </style>
-<meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<meta property="og:title" content="Utilisation de la CLI" />
+<meta property="og:description" content="Utilisation de la CLI La ligne de commande (CLI) de PulseGuard permet d’interagir avec le gestionnaire de mots de passe directement depuis le terminal, sans interface graphique.
+Elle est construite sur le module Python argparse et repose sur une architecture data-driven décrite dans le fichier commands.py.
+Structure technique 1. Entrée principale L’entrée principale du programme est la fonction main() dans cli.py.
+Elle gère deux modes d’exécution :
+Mode CLI direct : lorsqu’une commande est passée (pulseguard add ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/documentation-pulsguard/docs/cli/" /><meta property="article:section" content="docs" />
 
+<meta property="article:modified_time" content="2025-11-12T18:11:33+01:00" />
 
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
-<meta itemprop="name" content="">
-<meta itemprop="description" content="">
-
-<meta itemprop="wordCount" content="0">
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Utilisation de la CLI"/>
+<meta name="twitter:description" content="Utilisation de la CLI La ligne de commande (CLI) de PulseGuard permet d’interagir avec le gestionnaire de mots de passe directement depuis le terminal, sans interface graphique.
+Elle est construite sur le module Python argparse et repose sur une architecture data-driven décrite dans le fichier commands.py.
+Structure technique 1. Entrée principale L’entrée principale du programme est la fonction main() dans cli.py.
+Elle gère deux modes d’exécution :
+Mode CLI direct : lorsqu’une commande est passée (pulseguard add ."/>
+<meta itemprop="name" content="Utilisation de la CLI">
+<meta itemprop="description" content="Utilisation de la CLI La ligne de commande (CLI) de PulseGuard permet d’interagir avec le gestionnaire de mots de passe directement depuis le terminal, sans interface graphique.
+Elle est construite sur le module Python argparse et repose sur une architecture data-driven décrite dans le fichier commands.py.
+Structure technique 1. Entrée principale L’entrée principale du programme est la fonction main() dans cli.py.
+Elle gère deux modes d’exécution :
+Mode CLI direct : lorsqu’une commande est passée (pulseguard add .">
+<meta itemprop="dateModified" content="2025-11-12T18:11:33+01:00" />
+<meta itemprop="wordCount" content="512">
 <meta itemprop="keywords" content="" /></head>
 <body>
 
@@ -38,11 +50,135 @@
 
 
 <div class="content-container">
-<main><h1></h1>
+<main><h1>Utilisation de la CLI</h1>
+<h3 id="utilisation-de-la-cli">Utilisation de la CLI</h3>
+<p>La ligne de commande (<strong>CLI</strong>) de PulseGuard permet d’interagir avec le gestionnaire de mots de passe directement depuis le terminal, sans interface graphique.<br>
+Elle est construite sur le module Python <code>argparse</code> et repose sur une architecture <strong>data-driven</strong> décrite dans le fichier <code>commands.py</code>.</p>
+<hr>
+<h3 id="structure-technique">Structure technique</h3>
+<h4 id="1-entrée-principale">1. Entrée principale</h4>
+<p>L’entrée principale du programme est la fonction <code>main()</code> dans <code>cli.py</code>.<br>
+Elle gère deux modes d’exécution :</p>
+<ul>
+<li><strong>Mode CLI direct</strong> : lorsqu’une commande est passée (<code>pulseguard add ...</code>),</li>
+<li><strong>Mode console interactive</strong> : lorsqu’aucune commande n’est spécifiée (<code>pulseguard</code> seul).</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pulseguard get Gmail     <span style="color:#75715e"># Mode CLI</span>
+</span></span><span style="display:flex;"><span>pulseguard               <span style="color:#75715e"># Lance la console interactive</span>
+</span></span></code></pre></div><hr>
+<h4 id="2-système-de-commandes-dynamique">2. Système de commandes dynamique</h4>
+<p>Les commandes sont <strong>définies sous forme de données</strong> dans <code>commands.py</code> à l’aide de la classe <code>Command</code>.<br>
+Chaque commande y est décrite avec :</p>
+<ul>
+<li>son <strong>nom</strong> et ses <strong>alias</strong> (<code>delete</code>, <code>del</code>, <code>rm</code>, etc.),</li>
+<li>une <strong>description</strong>,</li>
+<li>un <strong>exemple d’utilisation</strong>,</li>
+<li>un <strong>handler</strong> (fonction Python exécutée),</li>
+<li>une liste d’<strong>arguments</strong> et de leurs types (<code>str</code>, <code>int</code>, <code>bool</code>, etc.).</li>
+</ul>
+<p>Ce modèle rend la CLI <strong>extensible</strong> :<br>
+ajouter une nouvelle commande ne nécessite que de l’enregistrer dans cette liste.</p>
+<hr>
+<h4 id="3-génération-automatique-du-parser">3. Génération automatique du parser</h4>
+<p>Le fichier <code>cli.py</code> construit dynamiquement un <code>argparse.ArgumentParser</code> à partir des définitions contenues dans <code>commands.py</code>.<br>
+Ainsi, toutes les options (<code>--url</code>, <code>--gen</code>, <code>--length</code>, etc.) sont ajoutées automatiquement sans duplication de code.</p>
+<p>Cela permet aussi de générer dynamiquement le texte d’aide accessible avec :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pulseguard --help
+</span></span></code></pre></div><hr>
+<h4 id="4-gestion-du-coffre-vault">4. Gestion du coffre (Vault)</h4>
+<p>Lors de l’exécution d’une commande :</p>
+<ul>
+<li>PulseGuard vérifie la présence du fichier de coffre (<code>vault.json</code>) ;</li>
+<li>s’il n’existe pas, un <strong>nouveau coffre chiffré</strong> est créé après saisie d’un mot de passe maître ;</li>
+<li>sinon, il demande ce mot de passe pour <strong>déverrouiller</strong> le coffre.</li>
+</ul>
+<p>Cette étape est gérée par la fonction <code>initialize_vault()</code>, qui s’assure que toutes les commandes manipulent un coffre sécurisé via la classe <code>Vault</code>.</p>
+<hr>
+<h4 id="5-exécution-des-commandes">5. Exécution des commandes</h4>
+<p>Chaque commande est associée à un <strong>handler</strong> défini dans <code>operations.py</code>.<br>
+Le module <code>cli.py</code> :</p>
+<ol>
+<li>identifie la commande saisie,</li>
+<li>construit dynamiquement la liste d’arguments,</li>
+<li>appelle le handler correspondant.</li>
+</ol>
+<p>Exemple de logique :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>handler <span style="color:#f92672">=</span> get_command_handler(args<span style="color:#f92672">.</span>command)
+</span></span><span style="display:flex;"><span>handler(vault, <span style="color:#f92672">*</span>arguments)
+</span></span></code></pre></div><p>Les erreurs (comme une commande inconnue ou un mauvais usage) sont capturées et accompagnées d’un message clair.</p>
+<hr>
+<h4 id="6-console-interactive">6. Console interactive</h4>
+<p>En l’absence de commande explicite, PulseGuard lance une console (<code>console.py</code>) basée sur la bibliothèque standard <code>cmd</code>.<br>
+Elle offre :</p>
+<ul>
+<li>une <strong>boucle interactive</strong> avec autocomplétion,</li>
+<li>la <strong>même logique de commandes</strong> que la CLI (<code>add</code>, <code>get</code>, <code>search</code>, etc.),</li>
+<li>des <strong>alias</strong> simplifiant la saisie (<code>ls</code>, <code>g</code>, <code>d</code>, etc.).</li>
+</ul>
+<p>Pour quitter la console :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>quit
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ou</span>
+</span></span><span style="display:flex;"><span>exit
+</span></span></code></pre></div><hr>
+<h4 id="7-génération-de-mots-de-passe">7. Génération de mots de passe</h4>
+<p>Certaines commandes (<code>add</code>, <code>genpass</code>) permettent de générer des mots de passe aléatoires en contrôlant :</p>
+<ul>
+<li>la longueur (<code>--length</code>),</li>
+<li>la présence de majuscules/minuscules,</li>
+<li>de chiffres,</li>
+<li>et de symboles.</li>
+</ul>
+<p>Ce comportement est intégré directement au parsing des arguments, garantissant la cohérence entre la CLI et la console interactive.</p>
+<hr>
+<h2 id="résumé">Résumé</h2>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Fichier concerné</th>
+<th>Rôle principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cli.py</code></td>
+<td>Entrée principale CLI</td>
+<td>Parsing, exécution et gestion du coffre</td>
+</tr>
+<tr>
+<td><code>commands.py</code></td>
+<td>Définition des commandes</td>
+<td>Architecture data-driven des commandes</td>
+</tr>
+<tr>
+<td><code>console.py</code></td>
+<td>Console interactive</td>
+<td>Interface <code>cmd</code> pour usage en boucle</td>
+</tr>
+<tr>
+<td><code>operations.py</code></td>
+<td>Handlers d’exécution</td>
+<td>Actions métiers (add, get, delete&hellip;)</td>
+</tr>
+<tr>
+<td><code>vault.py</code></td>
+<td>Gestion du coffre</td>
+<td>Lecture/écriture sécurisée (JSON chiffré)</td>
+</tr>
+<tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
 <div class="edit-meta">
+Last updated on 12 Nov 2025
 
-<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/documentation-pulsguard/docs/api/" title=""><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - </a>
-<a class="nav nav-next" href="http://localhost:1313/documentation-pulsguard/docs/development/" title="">Next -  <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/documentation-pulsguard/docs/installation/" title="Installation"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Installation</a>
+<a class="nav nav-next" href="http://localhost:1313/documentation-pulsguard/docs/api/" title="">Next -  <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main>
@@ -55,10 +191,10 @@
 <li class="parent"><a href="http://localhost:1313/documentation-pulsguard/docs/">Documentation PulseGuard</a>
   
 <ul class="sub-menu">
+<li class=""><a href="http://localhost:1313/documentation-pulsguard/docs/installation/">Installation</a></li>
+<li class="active"><a href="http://localhost:1313/documentation-pulsguard/docs/cli/">Utilisation de la CLI</a></li>
 <li class=""><a href="http://localhost:1313/documentation-pulsguard/docs/api/"></a></li>
-<li class="active"><a href="http://localhost:1313/documentation-pulsguard/docs/cli/"></a></li>
 <li class=""><a href="http://localhost:1313/documentation-pulsguard/docs/development/"></a></li>
-<li class=""><a href="http://localhost:1313/documentation-pulsguard/docs/installation/"></a></li>
 </ul>
   
 </li>

@@ -3,7 +3,7 @@
 <head><script src="/documentation-pulsguard/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=documentation-pulsguard/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>PulseGuard Docs</title>
+<title>Installation - PulseGuard Docs</title>
 <meta name="generator" content="Hugo 0.123.7">
 <link href="http://localhost:1313/documentation-pulsguard//index.xml" rel="alternate" type="application/rss+xml">
 <link rel="canonical" href="http://localhost:1313/documentation-pulsguard/docs/installation/">
@@ -16,19 +16,34 @@
 <script src="http://localhost:1313/documentation-pulsguard/js/bundle.js"></script><style>
 :root {}
 </style>
-<meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<meta property="og:title" content="Installation" />
+<meta property="og:description" content="Prérequis Python 3.11 ou supérieur
+Vérifie la version installée :
+python3 --version uv uv 0.9.8 ou supérieur – Gestionnaire d’environnement et de dépendances rapide
+pip install uv Installation de PulseGuard uv pip install -e . Configuration initiale Lors du premier lancement, PulseGuard créera automatiquement un coffre (vault) à l’emplacement suivant :
+~/.pulseguard/vault.json Tu peux personnaliser cet emplacement avec la variable d’environnement :
+export PULSEGUARD_VAULT_PATH=&#34;/chemin/vers/mon_vault.json&#34; Vérification de l’installation Teste que tout fonctionne :" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/documentation-pulsguard/docs/installation/" /><meta property="article:section" content="docs" />
 
+<meta property="article:modified_time" content="2025-11-12T18:11:33+01:00" />
 
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
-<meta itemprop="name" content="">
-<meta itemprop="description" content="">
-
-<meta itemprop="wordCount" content="0">
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Installation"/>
+<meta name="twitter:description" content="Prérequis Python 3.11 ou supérieur
+Vérifie la version installée :
+python3 --version uv uv 0.9.8 ou supérieur – Gestionnaire d’environnement et de dépendances rapide
+pip install uv Installation de PulseGuard uv pip install -e . Configuration initiale Lors du premier lancement, PulseGuard créera automatiquement un coffre (vault) à l’emplacement suivant :
+~/.pulseguard/vault.json Tu peux personnaliser cet emplacement avec la variable d’environnement :
+export PULSEGUARD_VAULT_PATH=&#34;/chemin/vers/mon_vault.json&#34; Vérification de l’installation Teste que tout fonctionne :"/>
+<meta itemprop="name" content="Installation">
+<meta itemprop="description" content="Prérequis Python 3.11 ou supérieur
+Vérifie la version installée :
+python3 --version uv uv 0.9.8 ou supérieur – Gestionnaire d’environnement et de dépendances rapide
+pip install uv Installation de PulseGuard uv pip install -e . Configuration initiale Lors du premier lancement, PulseGuard créera automatiquement un coffre (vault) à l’emplacement suivant :
+~/.pulseguard/vault.json Tu peux personnaliser cet emplacement avec la variable d’environnement :
+export PULSEGUARD_VAULT_PATH=&#34;/chemin/vers/mon_vault.json&#34; Vérification de l’installation Teste que tout fonctionne :">
+<meta itemprop="dateModified" content="2025-11-12T18:11:33+01:00" />
+<meta itemprop="wordCount" content="158">
 <meta itemprop="keywords" content="" /></head>
 <body>
 
@@ -38,11 +53,59 @@
 
 
 <div class="content-container">
-<main><h1></h1>
+<main><h1>Installation</h1>
+<h3 id="prérequis">Prérequis</h3>
+<ul>
+<li>
+<p><strong>Python 3.11 ou supérieur</strong><br>
+Vérifie la version installée :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 --version
+</span></span></code></pre></div></li>
+<li>
+<p><strong>uv uv 0.9.8 ou supérieur</strong> – Gestionnaire d’environnement et de dépendances rapide</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install uv
+</span></span></code></pre></div></li>
+</ul>
+<hr>
+<h3 id="installation-de-pulseguard">Installation de PulseGuard</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv pip install -e .
+</span></span></code></pre></div><hr>
+<h3 id="configuration-initiale">Configuration initiale</h3>
+<p>Lors du premier lancement, PulseGuard créera automatiquement un <strong>coffre (vault)</strong> à l’emplacement suivant :</p>
+<pre tabindex="0"><code>~/.pulseguard/vault.json
+</code></pre><p>Tu peux personnaliser cet emplacement avec la variable d’environnement :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PULSEGUARD_VAULT_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/chemin/vers/mon_vault.json&#34;</span>
+</span></span></code></pre></div><hr>
+<h3 id="vérification-de-linstallation">Vérification de l’installation</h3>
+<p>Teste que tout fonctionne :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pulseguard demo
+</span></span><span style="display:flex;"><span>pulseguard list
+</span></span></code></pre></div><p>Puis lance la <strong>console interactive</strong> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pulseguard
+</span></span></code></pre></div><hr>
+<h2 id="développement-optionnel">Développement (optionnel)</h2>
+<p>Pour contribuer au projet ou exécuter les tests :</p>
+<p>Clone le dépôt et installe le projet en mode édition :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/&lt;ton-repo&gt;/pulseguard.git
+</span></span><span style="display:flex;"><span>cd pulseguard
+</span></span><span style="display:flex;"><span>uv pip install -e .<span style="color:#f92672">[</span>dev,test<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>Cela installe PulseGuard ainsi que les dépendances de développement (<code>ruff</code>, <code>black</code>, <code>pytest</code>, etc.).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Installation des hooks de formatage automatique</span>
+</span></span><span style="display:flex;"><span>./setup-hooks.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lancer les tests</span>
+</span></span><span style="display:flex;"><span>uv run pytest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Vérification du code</span>
+</span></span><span style="display:flex;"><span>uv run ruff check src tests
+</span></span><span style="display:flex;"><span>uv run black src tests
+</span></span></code></pre></div><hr>
 <div class="edit-meta">
+Last updated on 12 Nov 2025
 
-<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/documentation-pulsguard/docs/development/" title=""><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - </a>
-<a class="nav nav-next" href="http://localhost:1313/documentation-pulsguard/docs/api/" title="">Next -  <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/documentation-pulsguard/docs/" title="Documentation PulseGuard"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Documentation PulseGuard</a>
+<a class="nav nav-next" href="http://localhost:1313/documentation-pulsguard/docs/cli/" title="Utilisation de la CLI">Next - Utilisation de la CLI <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main>
@@ -55,10 +118,10 @@
 <li class="parent"><a href="http://localhost:1313/documentation-pulsguard/docs/">Documentation PulseGuard</a>
   
 <ul class="sub-menu">
+<li class="active"><a href="http://localhost:1313/documentation-pulsguard/docs/installation/">Installation</a></li>
+<li class=""><a href="http://localhost:1313/documentation-pulsguard/docs/cli/">Utilisation de la CLI</a></li>
 <li class=""><a href="http://localhost:1313/documentation-pulsguard/docs/api/"></a></li>
-<li class=""><a href="http://localhost:1313/documentation-pulsguard/docs/cli/"></a></li>
 <li class=""><a href="http://localhost:1313/documentation-pulsguard/docs/development/"></a></li>
-<li class="active"><a href="http://localhost:1313/documentation-pulsguard/docs/installation/"></a></li>
 </ul>
   
 </li>

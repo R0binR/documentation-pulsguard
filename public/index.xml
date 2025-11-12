@@ -8,6 +8,20 @@
     <language>fr</language>
     <atom:link href="http://localhost:1313/documentation-pulsguard/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Installation</title>
+      <link>http://localhost:1313/documentation-pulsguard/docs/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/documentation-pulsguard/docs/installation/</guid>
+      <description>Prérequis Python 3.11 ou supérieur&#xA;Vérifie la version installée :&#xA;python3 --version uv uv 0.9.8 ou supérieur – Gestionnaire d’environnement et de dépendances rapide&#xA;pip install uv Installation de PulseGuard uv pip install -e . Configuration initiale Lors du premier lancement, PulseGuard créera automatiquement un coffre (vault) à l’emplacement suivant :&#xA;~/.pulseguard/vault.json Tu peux personnaliser cet emplacement avec la variable d’environnement :&#xA;export PULSEGUARD_VAULT_PATH=&amp;#34;/chemin/vers/mon_vault.json&amp;#34; Vérification de l’installation Teste que tout fonctionne :</description>
+    </item>
+    <item>
+      <title>Utilisation de la CLI</title>
+      <link>http://localhost:1313/documentation-pulsguard/docs/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/documentation-pulsguard/docs/cli/</guid>
+      <description>Utilisation de la CLI La ligne de commande (CLI) de PulseGuard permet d’interagir avec le gestionnaire de mots de passe directement depuis le terminal, sans interface graphique.&#xA;Elle est construite sur le module Python argparse et repose sur une architecture data-driven décrite dans le fichier commands.py.&#xA;Structure technique 1. Entrée principale L’entrée principale du programme est la fonction main() dans cli.py.&#xA;Elle gère deux modes d’exécution :&#xA;Mode CLI direct : lorsqu’une commande est passée (pulseguard add .</description>
+    </item>
+    <item>
       <title></title>
       <link>http://localhost:1313/documentation-pulsguard/docs/api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -16,23 +30,9 @@
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/documentation-pulsguard/docs/cli/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/documentation-pulsguard/docs/cli/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title></title>
       <link>http://localhost:1313/documentation-pulsguard/docs/development/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/documentation-pulsguard/docs/development/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/documentation-pulsguard/docs/installation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/documentation-pulsguard/docs/installation/</guid>
       <description></description>
     </item>
   </channel>
