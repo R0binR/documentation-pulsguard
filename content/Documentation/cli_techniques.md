@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de la CLI"
+title: "CLI documentation technique"
 weight: 3
 ---
 
@@ -10,7 +10,7 @@ Elle est construite sur le module Python `argparse` et repose sur une architectu
 
 ---
 
-### Structure technique
+### Structure technique de la CLI
 
 #### 1. Entrée principale
 

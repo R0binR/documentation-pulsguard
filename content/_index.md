@@ -16,12 +16,17 @@ PulseGuard est un outil Python léger qui permet de gérer, rechercher, génére
 - Recherche et édition rapides
 - Console interactive pour la navigation
 
+Ce projet est maintenu et développé par :
+
+- **Hugo Sibony**
+- **Lea Bonet**
+- **Chiyoung Lee**
+- **Robin Roger**
+
 ---
 
 ## Structure de la documentation
 
-1. [Installation](installation)
-2. [Utilisation en ligne de commande (CLI)](cli)
-3. [API Python](api)
-4. [Configuration du coffre](configuration)
-5. [Développement et tests](development)
+1. [Documentation](Documentation/)
+2. [Installation](Installation/)
+3. [Utilisation](Utilisation/)
